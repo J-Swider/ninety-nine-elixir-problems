@@ -21,4 +21,10 @@ defmodule P0 do
     def at(1, [ head | _ ]), do: head
     def at(i, [ _ | tail ]), do: at(i - 1, tail)
 
+# Problem 04 - Find the number of elements of a list.
+
+    def length(list), do: _length(list, 0)
+    defp _length([], res), do: res
+    defp _length([ _ | tail ], res), do: _length(tail, res + 1)
+
 end
