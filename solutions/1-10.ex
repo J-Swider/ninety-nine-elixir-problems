@@ -43,4 +43,14 @@ defmodule P0 do
         end
     end
 
+# Problem 07 - Flatten a nested list structure.
+
+    def flatten(list), do: _flatten(list, []) |> P0.rev()
+    defp _flatten([], res), do: res
+    defp _flatten([ head | tail ], res) when is_list(head) do
+        res = _flatten(head, res)
+        _flatten(tail, res)
+    end
+    defp _flatten([ head | tail ], res), do: _flatten(tail, [head] ++ res)
+
 end
