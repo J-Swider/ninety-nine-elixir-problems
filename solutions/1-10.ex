@@ -27,4 +27,10 @@ defmodule P0 do
     defp _length([], res), do: res
     defp _length([ _ | tail ], res), do: _length(tail, res + 1)
 
+# Problem 05 - Reverse a list.
+
+    def rev(list), do: _rev(list, [])
+    defp _rev([], res), do: res
+    defp _rev([ head | tail ], res), do: _rev(tail, [head] ++ res)
+
 end
