@@ -33,4 +33,14 @@ defmodule P0 do
     defp _rev([], res), do: res
     defp _rev([ head | tail ], res), do: _rev(tail, [head] ++ res)
 
+# Problem 06 - Find out whether a list is a palindrome.
+
+    def is_palindrome(list) do
+        if list == rev(list) do
+            true
+        else
+            false
+        end
+    end
+
 end
