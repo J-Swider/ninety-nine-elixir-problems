@@ -53,4 +53,18 @@ defmodule P0 do
     end
     defp _flatten([ head | tail ], res), do: _flatten(tail, [head] ++ res)
 
+# Problem 08 - Eliminate consecutive duplicates of list elements.
+
+    def compress(list), do: _compress(list, []) |> P0.rev()
+    defp _compress([], res), do: res
+    defp _compress([ head | tail ], []), do: _compress(tail, [ head ])
+    defp _compress([ head | tail ], res) do
+        [ res_head | _ ] = res
+        if head != res_head do
+            _compress(tail, [head] ++ res)
+        else
+            _compress(tail, res)
+        end
+    end
+
 end
