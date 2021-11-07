@@ -67,4 +67,18 @@ defmodule P0 do
         end
     end
 
+# Problem 09 - Pack consecutive duplicates of list elements into sublists.
+
+    def pack(list), do: _pack(list, [], [])
+    defp _pack([], acc, final), do: final ++ [acc]
+    defp _pack([head | tail], [], final), do: _pack(tail, [head], final)
+    defp _pack([ head | tail ], acc, final) do
+        [ acc_head | _ ] = acc
+        if acc_head == head do
+            _pack(tail, [head] ++ acc, final)
+        else
+            _pack(tail, [head], final ++ [acc])
+        end
+    end
+
 end
